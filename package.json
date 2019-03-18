@@ -1,0 +1,23 @@
+{
+  "name": "nauro-sandbox-api",
+  "version": "1.0.0",
+  "description": "API do sandbox",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/naurojunior/nauro-sandbox-api.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/naurojunior/nauro-sandbox-api/issues"
+  },
+  "homepage": "https://github.com/naurojunior/nauro-sandbox-api#readme",
+  "dependencies": {
+    "request": "^2.88.0"
+  }
+}
