@@ -3,21 +3,20 @@ const fs = require("fs"),
       YoutubePlaylistAPI = require("./YoutubePlaylistAPI.js"),
       request = require("request");
 
-const port = 4000
-const ip = '0.0.0.0'
+var express = require('express');
+var app = express();
+var Tumblr = require('./tumblr.js')
 
 
-const server = http.createServer(async (req, res) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
-
-   let videosList = await new YoutubePlaylistAPI().getVideos();
-   res.end(JSON.stringify(videosList));
+app.get('/videos', async function (req, res) {
+  let videosList = await new YoutubePlaylistAPI().getVideos();
+  res.send(videosList);
 });
 
-
-server.listen(port, ip, () => {
-  console.log(`Servidor rodando em http://${ip}:${port}`)
-  console.log('Para derrubar o servidor: ctrl + c');
+app.get('/tumblr/:tumblr/:tag', async function(req,res){
+  let results = await new Tumblr().start(req.params.tumblr,req.params.tag);
+  res.send(results);
 });
+
+app.listen(4000, function () {});
+
