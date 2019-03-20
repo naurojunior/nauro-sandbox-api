@@ -19,6 +19,7 @@
   "homepage": "https://github.com/naurojunior/nauro-sandbox-api#readme",
   "dependencies": {
     "express": "^4.16.4",
+    "node-fetch": "^2.3.0",
     "request": "^2.88.0"
   }
 }
